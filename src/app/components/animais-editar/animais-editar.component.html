@@ -1,77 +1,50 @@
-<p>animais-criar works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <h2 class="mb-4">Editar Animal</h2>
+      <form [formGroup]="formularioAnimais" (ngSubmit)="handleSubmit()" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input formControlName="nome" type="text" id="nome" class="form-control" required>
+          <div *ngIf="submitted || formularioAnimais.controls['nome'].touched && formularioAnimais.controls['nome'].errors?.required" class="invalid-feedback">
+            O Nome é obrigatório
+          </div>
+        </div>
 
-<div>
-    <h2>Novo Animal</h2>
+        <div class="mb-3">
+          <label for="especie" class="form-label">Espécie:</label>
+          <input formControlName="especie" type="text" id="especie" class="form-control" required>
+          <div *ngIf="submitted || formularioAnimais.controls['especie'].touched && formularioAnimais.controls['especie'].errors?.required" class="invalid-feedback">
+            A Espécie é obrigatória
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="raca" class="form-label">Raça:</label>
+          <input formControlName="raca" type="text" id="raca" class="form-control" required>
+          <div *ngIf="submitted || formularioAnimais.controls['raca'].touched && formularioAnimais.controls['raca'].errors?.required" class="invalid-feedback">
+            A Raça é obrigatória
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="sexo" class="form-label">Sexo:</label>
+          <input formControlName="sexo" type="text" id="sexo" class="form-control" required>
+          <div *ngIf="submitted || formularioAnimais.controls['sexo'].touched && formularioAnimais.controls['sexo'].errors?.required" class="invalid-feedback">
+            O Sexo é obrigatório
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
+          <input formControlName="dataNascimento" type="date" id="dataNascimento" class="form-control" required>
+          <div *ngIf="submitted || formularioAnimais.controls['dataNascimento'].touched && formularioAnimais.controls['dataNascimento'].errors?.required" class="invalid-feedback">
+            A Data de Nascimento é obrigatória
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="submitted && formularioAnimais.invalid">Confirmar Edição</button>
+      </form>
+    </div>
   </div>
-  <div>
-    <form [formGroup]="formularioAnimais" (ngSubmit)="handleSubmit()">
-      <div>
-        <label for="nome">Nome:</label>
-        <input formControlName="nome" type="text" id="nome" />
-        @if ((submitted || formularioAnimais.controls['nome'].touched) && formularioAnimais.controls['nome'].errors) {
-        <div>
-          @if (formularioAnimais.controls['nome'].errors['required']) {
-          <span>O nome é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="especie">Especie:</label>
-        <input formControlName="especie" type="text" id="especie" />
-        @if ((submitted || formularioAnimais.controls['especie'].touched) && formularioAnimais.controls['especie'].errors) {
-        <div>
-          @if (formularioAnimais.controls['especie'].errors['required']) {
-          <span>A especie é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="raca">Raça:</label>
-        <input formControlName="raca" type="text" id="raca" />
-        @if ((submitted || formularioAnimais.controls['raca'].touched) && formularioAnimais.controls['raca'].errors) {
-        <div>
-          @if (formularioAnimais.controls['raca'].errors['required']) {
-          <span>A raça é obrigatória</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="sexo">Sexo:</label>
-        <input formControlName="sexo" type="text" id="sexo" />
-        @if ((submitted || formularioAnimais.controls['sexo'].touched) && formularioAnimais.controls['sexo'].errors) {
-        <div>
-          @if (formularioAnimais.controls['sexo'].errors['required']) {
-          <span>A raça é obrigatória</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="dataNascimento">Data de Nascimento:</label>
-        <input formControlName="dataNascimento" type="datetime-local" id="dataNascimento" />
-        @if ((submitted || formularioAnimais.controls['dataNascimento'].touched) && formularioAnimais.controls['dataNascimento'].errors) {
-        <div>
-          @if (formularioAnimais.controls['dataNascimento'].errors['required']) {
-          <span>A Data e Hora é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="tutorId">ID do Tutor:</label>
-        <input formControlName="tutorId" type="text" id="tutorId" />
-        @if ((submitted || formularioAnimais.controls['tutorId'].touched) && formularioAnimais.controls['tutorId'].errors) {
-        <div>
-          @if (formularioAnimais.controls['tutorId'].errors['required']) {
-          <span>O ID do Tutor é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      
-      <button type="submit" [disabled]="submitted && formularioAnimais.invalid">Criar animal</button>
-    </form>
-  </div><p>animais-editar works!</p>
+</div>

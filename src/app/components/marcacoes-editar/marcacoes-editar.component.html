@@ -1,61 +1,52 @@
-<div>
-    <h2>Editar marcação</h2>
-  </div>
-  <div>
-    <form [formGroup]="formularioMarcacao" (ngSubmit)="handleSubmit()">
-      <div>
-        <label for="tipo">Tipo:</label>
-        <input formControlName="tipo" type="text" id="tipo" />
-        @if ((submitted || formularioMarcacao.controls['tipo'].touched) && formularioMarcacao.controls['tipo'].errors) {
-        <div>
-          @if (formularioMarcacao.controls['tipo'].errors['required']) {
-          <span>O Tipo é obrigatório</span>
-          }
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-4">Editar Marcação</h2>
+      <form [formGroup]="formularioMarcacao" (ngSubmit)="handleSubmit()" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="tipo" class="form-label">Tipo:</label>
+          <input formControlName="tipo" type="text" id="tipo" class="form-control" required>
+          <div *ngIf="submitted || formularioMarcacao.controls['tipo'].touched && formularioMarcacao.controls['tipo'].errors?.required" class="invalid-feedback">
+            O Tipo é obrigatório
+          </div>
         </div>
-        }
-      </div>
-      <div>
-        <label for="animalId">ID do Animal:</label>
-        <input formControlName="animalId" type="text" id="animalId" />
-        @if ((submitted || formularioMarcacao.controls['animalId'].touched) && formularioMarcacao.controls['animalId'].errors) {
-        <div>
-          @if (formularioMarcacao.controls['animalId'].errors['required']) {
-          <span>O ID do Animal é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="tutorId">ID do Tutor:</label>
-        <input formControlName="tutorId" type="text" id="tutorId" />
-        @if ((submitted || formularioMarcacao.controls['tutorId'].touched) && formularioMarcacao.controls['tutorId'].errors) {
-        <div>
-          @if (formularioMarcacao.controls['tutorId'].errors['required']) {
-          <span>O ID do Tutor é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="dataHora">Data e Hora:</label>
-        <input formControlName="dataHora" type="datetime-local" id="dataHora" />
-        @if ((submitted || formularioMarcacao.controls['dataHora'].touched) && formularioMarcacao.controls['dataHora'].errors) {
-        <div>
-          @if (formularioMarcacao.controls['dataHora'].errors['required']) {
-          <span>A Data e Hora é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
 
-      <div>
-        <input formControlName="realizada" type="checkbox" id="realizada" />
-        <label for="realizada">Realizada</label>
-      </div>
-      <div>
-        <input formControlName="cancelada" type="checkbox" id="cancelada" />
-        <label for="cancelada">Cancelada</label>
-      </div>
-      <button type="submit" [disabled]="submitted && formularioMarcacao.invalid">Guardar</button>
-    </form>
+        <div class="mb-3">
+          <label for="animalId" class="form-label">ID do Animal:</label>
+          <input formControlName="animalId" type="text" id="animalId" class="form-control" required>
+          <div *ngIf="submitted || formularioMarcacao.controls['animalId'].touched && formularioMarcacao.controls['animalId'].errors?.required" class="invalid-feedback">
+            O ID do Animal é obrigatório
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="tutorId" class="form-label">ID do Tutor:</label>
+          <input formControlName="tutorId" type="text" id="tutorId" class="form-control" required>
+          <div *ngIf="submitted || formularioMarcacao.controls['tutorId'].touched && formularioMarcacao.controls['tutorId'].errors?.required" class="invalid-feedback">
+            O ID do Tutor é obrigatório
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="dataHora" class="form-label">Data e Hora:</label>
+          <input formControlName="dataHora" type="datetime-local" id="dataHora" class="form-control" required>
+          <div *ngIf="submitted || formularioMarcacao.controls['dataHora'].touched && formularioMarcacao.controls['dataHora'].errors?.required" class="invalid-feedback">
+            A Data e Hora são obrigatórias
+          </div>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input formControlName="realizada" type="checkbox" id="realizada" class="form-check-input">
+          <label for="realizada" class="form-check-label">Realizada</label>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input formControlName="cancelada" type="checkbox" id="cancelada" class="form-check-input">
+          <label for="cancelada" class="form-check-label">Cancelada</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="submitted && formularioMarcacao.invalid">Confirmar Edição</button>
+      </form>
+    </div>
   </div>
+</div>

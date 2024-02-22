@@ -1,44 +1,34 @@
-<p>tutores-criar works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="mb-4">Editar Tutor</h2>
+      <form [formGroup]="formularioTutores" (ngSubmit)="handleSubmit()" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input formControlName="nome" type="text" id="nome" class="form-control" required>
+          <div *ngIf="submitted || formularioTutores.controls['nome'].touched && formularioTutores.controls['nome'].errors?.required" class="invalid-feedback">
+            O Nome é obrigatório
+          </div>
+        </div>
 
-<div>
-    <h2>Novo Tutor</h2>
+        <div class="mb-3">
+          <label for="telemovel" class="form-label">Telemóvel:</label>
+          <input formControlName="telemovel" type="text" id="telemovel" class="form-control" required>
+          <div *ngIf="submitted || formularioTutores.controls['telemovel'].touched && formularioTutores.controls['telemovel'].errors?.required" class="invalid-feedback">
+            O Telemóvel é obrigatório
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail:</label>
+          <input formControlName="email" type="email" id="email" class="form-control" required>
+          <div *ngIf="submitted || formularioTutores.controls['email'].touched && formularioTutores.controls['email'].errors?.required" class="invalid-feedback">
+            O E-mail é obrigatório
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="submitted && formularioTutores.invalid">Confirmar Edição</button>
+      </form>
+    </div>
   </div>
-  <div>
-    <form [formGroup]="formularioTutores" (ngSubmit)="handleSubmit()">
-      <div>
-        <label for="nome">Nome:</label>
-        <input formControlName="nome" type="text" id="nome" />
-        @if ((submitted || formularioTutores.controls['nome'].touched) && formularioTutores.controls['nome'].errors) {
-        <div>
-          @if (formularioTutores.controls['nome'].errors['required']) {
-          <span>O Tipo é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="telemovel">Telemovel:</label>
-        <input formControlName="telemovel" type="text" id="telemovel" />
-        @if ((submitted || formularioTutores.controls['telemovel'].touched) && formularioTutores.controls['telemovel'].errors) {
-        <div>
-          @if (formularioTutores.controls['telemovel'].errors['required']) {
-          <span>O ID do Animal é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      <div>
-        <label for="email">E-mail:</label>
-        <input formControlName="email" type="email" id="email" />
-        @if ((submitted || formularioTutores.controls['email'].touched) && formularioTutores.controls['email'].errors) {
-        <div>
-          @if (formularioTutores.controls['email'].errors['required']) {
-          <span>O ID do Tutor é obrigatório</span>
-          }
-        </div>
-        }
-      </div>
-      
-      <button type="submit" [disabled]="submitted && formularioTutores.invalid">Criar marcação</button>
-    </form>
-  </div><p>tutores-editar works!</p>
+</div>
