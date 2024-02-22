@@ -1,0 +1,39 @@
+
+
+<div class="container mt-4">
+  <h2>Novo Tutor</h2>
+  <form [formGroup]="formularioTutores" (ngSubmit)="handleSubmit()" class="needs-validation" novalidate>
+
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome:</label>
+      <input formControlName="nome" type="text" id="nome" class="form-control" />
+      <div *ngIf="formularioTutores.controls['nome'].touched && formularioTutores.controls['nome'].errors">
+        <div *ngIf="formularioTutores.controls['nome'].errors['required']" class="text-danger">
+          O nome é obrigatório
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="telemovel" class="form-label">Telemóvel:</label>
+      <input formControlName="telemovel" type="text" id="telemovel" class="form-control" />
+      <div *ngIf="formularioTutores.controls['telemovel'].touched && formularioTutores.controls['telemovel'].errors">
+        <div *ngIf="formularioTutores.controls['telemovel'].errors['required']" class="text-danger">
+          O telemóvel é obrigatório
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail:</label>
+      <input formControlName="email" type="email" id="email" class="form-control" />
+      <div *ngIf="formularioTutores.controls['email'].touched && formularioTutores.controls['email'].errors">
+        <div *ngIf="formularioTutores.controls['email'].errors['required']" class="text-danger">
+          O e-mail é obrigatório
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="formularioTutores.invalid">Criar tutor</button>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+
+
+<div class="container mt-4">
+  <h2>Nova marcação</h2>
+  <form [formGroup]="formularioMarcacao" (ngSubmit)="handleSubmit()" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="tipo" class="form-label">Tipo:</label>
+      <input formControlName="tipo" type="text" id="tipo" class="form-control" [class.is-invalid]="submitted && formularioMarcacao.controls['tipo'].errors" />
+      <div *ngIf="submitted && formularioMarcacao.controls['tipo'].errors" class="invalid-feedback">
+        <div *ngIf="formularioMarcacao.controls['tipo'].errors['required']">O Tipo é obrigatório</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="animalId" class="form-label">ID do Animal:</label>
+      <input formControlName="animalId" type="text" id="animalId" class="form-control" [class.is-invalid]="submitted && formularioMarcacao.controls['animalId'].errors" />
+      <div *ngIf="submitted && formularioMarcacao.controls['animalId'].errors" class="invalid-feedback">
+        <div *ngIf="formularioMarcacao.controls['animalId'].errors['required']">O ID do Animal é obrigatório</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="tutorId" class="form-label">ID do Tutor:</label>
+      <input formControlName="tutorId" type="text" id="tutorId" class="form-control" [class.is-invalid]="submitted && formularioMarcacao.controls['tutorId'].errors" />
+      <div *ngIf="submitted && formularioMarcacao.controls['tutorId'].errors" class="invalid-feedback">
+        <div *ngIf="formularioMarcacao.controls['tutorId'].errors['required']">O ID do Tutor é obrigatório</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="dataHora" class="form-label">Data e Hora:</label>
+      <input formControlName="dataHora" type="datetime-local" id="dataHora" class="form-control" [class.is-invalid]="submitted && formularioMarcacao.controls['dataHora'].errors" />
+      <div *ngIf="submitted && formularioMarcacao.controls['dataHora'].errors" class="invalid-feedback">
+        <div *ngIf="formularioMarcacao.controls['dataHora'].errors['required']">A Data e Hora são obrigatórias</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="submitted && formularioMarcacao.invalid">Criar marcação</button>
+  </form>
+</div>
+
